@@ -1,0 +1,61 @@
+
+********************************************* OAauth2 **************************************************
+
+para comenzar con nuestra implementacion de OAuth2 vamos a instalar unas dependencias en nuestro pom.xm
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+
+Luego creamos nuestro index.html en la carpeta static de nuestro proyecto en src/main/resources/static
+
+copeamos nuestros script en el head
+<base href="/"/>
+    <!-- Boostrap -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Jquery -->
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+
+
+y dentro del body generamos un div que contenga un href="/oauth2/authorization/github" para poder inicar con GitHub
+
+Luego entramos a nuestro Github y en nuestra cuenta entramos a: https://github.com/settings/developers
+
+Escogemos la seccion OAuth Apps y creamos uno nuevo
+
+Application name:<nombreDeLaAplicacion>
+Homepage URL:http://localhost:8080(Esta debera cambiar por la URL de nuestra Api REST)
+Application description:<DescripcionDeLaAplicacion>
+Authorization callback URL:http://localhost:8080/login/oauth2/code/github
+
+Copeamos el Client ID:7d11b4537621712ff27c
+Luego generamos el client secret y lo copeamos:272e4659066c493f0959ffeae27030a05564d232
+
+Nota: Es importante copear el Client secrets cuando es generado ya que despues no lo podemos visualizar. Estos datos los podemos guardar en un .txt afuera de nuestro proyecto para tener acceso rapido.
+
+Luego aplicar credenciales en el application.prorperties en la aplicacion para que autorice a nuestro cliente con el client secret generado anteriormente,
+
+spring.security.oauth2.client.registration.github.clientId=
+spring.security.oauth2.client.registration.github.clientSecret=
+
+*******************************************************************************************************
+
+Con esto ya generamos la implementacion OAuth2 en nuestra aplicacion.
+
+*********************************************************************************************************

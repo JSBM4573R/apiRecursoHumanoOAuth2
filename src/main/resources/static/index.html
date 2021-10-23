@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <base href="/"/>
+    <!-- Boostrap -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Jquery -->
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Recursos Humanos</h1>
+
+    <div class="container unauthenticated">
+        Para iniciar con Github: <a href="/oauth2/authorization/github">Click Aqui!</a>
+    </div>
+
+    <div class="container authenticated" style="display: none">
+        Autenticado como: <span id="user"></span>
+
+    </div>
+    
+</body>
+</html>
